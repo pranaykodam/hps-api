@@ -1,9 +1,15 @@
 const express = require("express");
 const fs = require("fs");
+const cors = require("cors");
 const { filterValve } = require("./Functions");
 
 const App = express();
 App.use(express.json());
+App.use(
+  cors({
+    origin: "*",
+  })
+);
 
 App.get("/", async (req, res) => {
   let rawdata = await fs.readFileSync("hps-data.json");

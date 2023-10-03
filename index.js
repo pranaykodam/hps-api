@@ -20,11 +20,11 @@ App.get("/", (req, res) =>
 
 const PORT = process.env.PORT || 3000;
 
-// App.get("/", async (req, res) => {
-//   let rawdata = await fs.readFileSync("hps-data.json");
-//   let data = await JSON.parse(rawdata);
-//   res.send({ status: true, message: "server is running", data });
-// });
+App.get("/", async (req, res) => {
+  let rawdata = await fs.readFileSync("hps-data.json");
+  let data = await JSON.parse(rawdata);
+  res.send({ status: true, message: "server is running", data });
+});
 
 App.get("/valve/:id", async (req, res) => {
   console.log("params", req.params);

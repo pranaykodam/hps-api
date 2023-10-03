@@ -12,11 +12,11 @@ App.use(
   })
 );
 
-App.get("/", (req, res) =>
-  res.json({
-    status: "Welcome to server",
-  })
-);
+// App.get("/", (req, res) =>
+//   res.json({
+//     status: "Welcome to server",
+//   })
+// );
 
 const PORT = process.env.PORT || 3000;
 

@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
 const { filterValve } = require("./Functions");
+require("dotenv").config();
 
 const App = express();
 App.use(express.json());
@@ -16,6 +17,8 @@ App.get("/", (req, res) =>
     status: "Welcome to server",
   })
 );
+
+const PORT = process.env.PORT || 3000;
 
 // App.get("/", async (req, res) => {
 //   let rawdata = await fs.readFileSync("hps-data.json");
@@ -32,6 +35,6 @@ App.get("/valve/:id", async (req, res) => {
   res.send({ status: true, message: "server is running", data });
 });
 
-App.listen(8000, (req, res) =>
+App.listen(PORT, (req, res) =>
   console.log("Server is running at http://localhost:8000")
 );
